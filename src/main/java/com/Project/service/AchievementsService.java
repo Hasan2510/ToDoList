@@ -62,4 +62,10 @@ public class AchievementsService {
 		}
 
 	}
+	public boolean deleteachievements(Integer id) {
+		if (!achievementsRepository.existsById(id)) {
+			throw new AchievementNotFoundException();}
+			achievementsRepository.deleteById(id);
+			return true;
+	}
 }
