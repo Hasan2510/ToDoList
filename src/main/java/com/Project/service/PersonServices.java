@@ -47,4 +47,15 @@ public class PersonServices {
         }
 	}
 	
+	public PersonDTO updatePerson(int id, Person person) {
+        Optional<Person> optional = personRepository.findById(id);
+        if (optional.isPresent()) {
+        	Person personToUpdate = optional.get();
+            personToUpdate.setName(person.getName());
+            return personMapper.mapToDTO(personRepository.save(personToUpdate));
+        } else {
+            throw new PersonNotFoundException();
+        }
+    }
+	
 }
