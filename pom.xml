@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.project</groupId>
-	<artifactId>Project2</artifactId>
+	<artifactId>ToDoList</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Project2</name>
+	<name>ToDoList</name>
 	<description>My Project</description>
 	<packaging>war</packaging>
 	<properties>
