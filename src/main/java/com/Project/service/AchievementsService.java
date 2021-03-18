@@ -44,4 +44,8 @@ public class AchievementsService {
 			throw new AchievementNotFoundException("Achievement is not found");
 		}
 	}
+	public AchievementDTO createAchievements(Achievements achievements) {
+		Achievements newAchievements = achievementsRepository.save(achievements);
+		return achievementsMapper.mapToDTO(newAchievements);
+	}
 }
