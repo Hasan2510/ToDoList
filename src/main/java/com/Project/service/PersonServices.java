@@ -31,4 +31,20 @@ public class PersonServices {
 		return personMapper.mapToDTO(personRepository.save(person));
 	}
 	
+	public List<PersonDTO> readAllPersons() {
+		List<Person> persons = personRepository.findAll();
+		List<PersonDTO> personDTOs = new ArrayList<>();
+		persons.forEach(person -> personDTOs.add(personMapper.mapToDTO(person)));
+		return personDTOs;
+	}
+
+	public PersonDTO readById(int id) {
+        Optional<Person> person = personRepository.findById(id);
+        if (person.isPresent()) {
+            return personMapper.mapToDTO(person.get());
+        } else {
+            throw new PersonNotFoundException("Person not found");
+        }
+	}
+	
 }
