@@ -58,4 +58,13 @@ public class PersonServices {
         }
     }
 	
+	public Boolean deletePerson(int id) {
+        if (personRepository.existsById(id)) {
+        	personRepository.deleteById(id);
+        } else {
+            throw new PersonNotFoundException("The person wasn't found");
+        }
+        return !personRepository.existsById(id);
+    }
+	
 }
