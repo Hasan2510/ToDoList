@@ -48,4 +48,18 @@ public class AchievementsService {
 		Achievements newAchievements = achievementsRepository.save(achievements);
 		return achievementsMapper.mapToDTO(newAchievements);
 	}
+	
+	public AchievementDTO updateachievements(Integer id, Achievements achievements) { 
+		Optional<Achievements> optional = achievementsRepository.findById(id);
+		if (optional.isPresent()) {
+			Achievements achievementsToupdate= optional.get();
+			achievementsToupdate.setAchievement(achievements.getAchievement());
+			achievementsToupdate.setComplete(achievements.getComplete());
+			return achievementsMapper.mapToDTO(achievementsRepository.save(achievementsToupdate));
+		} else {
+			throw new AchievementNotFoundException("Achievement is not found");
+			
+		}
+
+	}
 }
