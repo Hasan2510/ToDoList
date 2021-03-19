@@ -1,6 +1,7 @@
 package com.Project.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.Project.Exceptions.PersonNotFoundException;
 import com.Project.Mappers.PersonMappers;
@@ -14,6 +15,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+@Transactional
 @Service
 public class PersonServices {
 

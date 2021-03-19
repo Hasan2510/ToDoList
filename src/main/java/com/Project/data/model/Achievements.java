@@ -104,6 +104,58 @@ public class Achievements {
 			this.achievement = achievement;
 		}
 
+
+
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + ((achievement == null) ? 0 : achievement.hashCode());
+			result = prime * result + ((complete == null) ? 0 : complete.hashCode());
+			//result = prime * result + id;
+			result = prime * result + ((person == null) ? 0 : person.hashCode());
+			return result;
+		}
+
+
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			Achievements other = (Achievements) obj;
+			if (achievement == null) {
+				if (other.achievement != null)
+					return false;
+			} else if (!achievement.equals(other.achievement))
+				return false;
+			if (complete == null) {
+				if (other.complete != null)
+					return false;
+			} else if (!complete.equals(other.complete))
+				return false;
+			//if (id != other.id)
+				//return false;
+			if (person == null) {
+				if (other.person != null)
+					return false;
+			} else if (!person.equals(other.person))
+				return false;
+			return true;
+		}
+
+
+
+		@Override
+		public String toString() {
+			return "Achievements [id=" + id + ", achievement=" + achievement + ", complete=" + complete + ", person="
+					+ person + "]";
+		}
+
 		
 	}
 	
