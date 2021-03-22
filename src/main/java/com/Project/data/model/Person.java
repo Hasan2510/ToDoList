@@ -53,6 +53,13 @@ public class Person {
 		this.achievements = achievements;
 	}
 
+	public Person(int id, String name, @Min(16) int age) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.age = age;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -91,7 +98,7 @@ public class Person {
 		int result = 1;
 		result = prime * result + ((achievements == null) ? 0 : achievements.hashCode());
 		result = prime * result + age;
-		result = prime * result + id;
+		//result = prime * result + id;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
@@ -112,8 +119,8 @@ public class Person {
 			return false;
 		if (age != other.age)
 			return false;
-		if (id != other.id)
-			return false;
+		//if (id != other.id)
+		//	return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
