@@ -15,6 +15,13 @@ public class PersonDTO {
 
 	}
 
+	public PersonDTO(int id, String name, List<AchievementDTO> achievements) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.achievements = achievements;
+	}
+
 	public PersonDTO(String name, List<AchievementDTO> achievements) {
 		super();
 		this.name = name;

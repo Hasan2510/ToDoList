@@ -106,7 +106,7 @@ import com.Project.service.PersonServices;
 	        headers.add("Location", String.valueOf(validPerson.getId()));
 	        ResponseEntity<PersonDTO> response = new ResponseEntity<PersonDTO>(validPersonDTO, headers, HttpStatus.CREATED);
 
-	        assertThat(response).isEqualTo(personController.createPperson(validPerson));
+	        assertThat(response).isEqualTo(personController.createPerson(validPerson));
 
 	        verify(personService, times(1)).createPerson(Mockito.any(Person.class));
 	    }

@@ -17,8 +17,9 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-
+import com.Project.data.model.Achievements;
 import com.Project.data.model.Person;
+import com.Project.dto.AchievementDTO;
 import com.Project.dto.PersonDTO;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -40,7 +41,7 @@ class PersonControllerIntegrationTest {
         private ObjectMapper objectMapper;
 
         
-        private PersonDTO validPersonDTO = new PersonDTO(1, "Hasan");
+        private PersonDTO validPersonDTO = new PersonDTO(1, "Hasan",List.of(new AchievementDTO(1,"get a phd",true)));
 
        
         private List<PersonDTO> validPersonDTOs = List.of(validPersonDTO);
@@ -52,6 +53,7 @@ class PersonControllerIntegrationTest {
                 Person personToSave = new Person(1, "Hasan", 20,List.of());
                 PersonDTO expectedPerson = new PersonDTO(1, "Hasan");
 
+                expectedPerson.setAchievements(List.of());
                 MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.request(HttpMethod.POST, "/person");
 
                 mockRequest.contentType(MediaType.APPLICATION_JSON);
@@ -102,7 +104,7 @@ class PersonControllerIntegrationTest {
         @Test
         void updatePersonTest() throws Exception {
             Person personToUpdate = new Person(1, "Hasan", 20,List.of());
-            PersonDTO expectedPerson = new PersonDTO(1, "Hasan");
+            PersonDTO expectedPerson = new PersonDTO(1, "Hasan",List.of(new AchievementDTO(1,"get a phd",true)));
           
 
             MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.request(HttpMethod.PUT, "/person/1");
